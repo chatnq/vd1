@@ -22,7 +22,10 @@ class MainPage extends Component {
         const { colorName } = this.props;
         return COLORS[colorName].hexCode;
     }
-
+    onOpenDrawer() {
+        this.props.navigation.openDrawer();
+    }
+    
     render() {
         const color = this.selectedColor();
         return (
@@ -47,6 +50,13 @@ class MainPage extends Component {
                         onPress={this.onLoginpage.bind(this)}
                         color="#222"
                         title="Login"
+                     />
+                 </View>
+                 <View style={{width: 200, height: 200, alignContent: 'center' }}>
+                    <Button 
+                        onPress={this.onOpenDrawer.bind(this)}
+                        color="#222"
+                        title="Open Menu"
                      />
                  </View>
             </View>

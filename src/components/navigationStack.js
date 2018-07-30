@@ -1,42 +1,17 @@
 import React from 'react';
-import { addNavigationHelpers, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createDrawerNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { createStore, combineReducers } from 'redux';
 import { connect } from 'react-redux';
 import MainPage from './MainPage';
 import ChooseColorPage from './ChooseColorPage';
 import Loginpage from './Login';
+import Menu from './Menu';
 
 //following  code to remove the warning: isMounted ....
 //As people on forum said that: this warning was throw out when have conflictiion between react-native and react-navigator version
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-/*
-export const tabNavigator= createBottomTabNavigator(
-    {
-        homeTab: {
-          screen: MainPage,
-          navigationOptions: {
-            header: null,
-            headerTitle: 'HOme',
-            tabBarLabel: 'HoMe',
-          },
-        },
-        logintab: {
-          screen: Loginpage,
-          navigationOptions: {
-            headerTitle: 'Login',
-            tabBarLabel: 'LoGin',
-          },
-        },
-        changetab: {
-            screen: ChooseColorPage,
-            navigationOptions: {
-              headerTitle: 'Choose Color',
-              tabBarLabel: 'Color n',
-            },
-          },
-    });
-*/
+
 export const NavigatorStack1 = createStackNavigator(
 {
     Main: { 
@@ -48,14 +23,12 @@ export const NavigatorStack1 = createStackNavigator(
     ChooseColor: { 
         screen: ChooseColorPage, 
         navigationOptions: {
-                       headerLeft: null,
-                       headerTitle: 'Đổi màu'   
+             headerTitle: 'Đổi màu'   
         } 
     },
     Login: {
         screen: Loginpage,
         navigationOptions: {
-          //header: null,
           headerTitle: 'Đăng nhập'   
         },
       },
@@ -87,12 +60,53 @@ export const NavigatorStack2 = createStackNavigator(
             }  }
     }
 );
-export const NavigatorStack= createBottomTabNavigator(
+export const TabNavigatorStack= createBottomTabNavigator(
     {
-        HOmeTab: {
-          screen: NavigatorStack1,},
-        UserTab: {
-            screen: NavigatorStack2,}
+        Home: {
+          screen: NavigatorStack1,
+          navigationOptions: {
+            headerTitle: 'Trang chu',
+            tabBarLabel: 'Home',
+          },
+        },
+        Setting: {
+            screen: NavigatorStack2,
+            navigationOptions: {
+                headerTitle: 'Thiet lap',
+                tabBarLabel: 'Setting',
+         } },
+    },
+    /*{
+        navigationOptions: ({ navigation }) => ({
+          tabBarIcon: ({ focused, tintColor }) => {
+            const { routeName } = navigation.state;
+            let iconName;
+            if (routeName === 'Home') {
+              iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            } else if (routeName === 'Settings') {
+              iconName = `ios-options${focused ? '' : '-outline'}`;
+            }
+    
+            // You can return any component that you like here! We usually use an
+            // icon component from react-native-vector-icons
+            return <Ionicons name={iconName} size={25} color={tintColor} />;
+          },
+        }),
+        tabBarOptions: {
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        },
+      } */
+);
+export const NavigatorStack= createDrawerNavigator(
+    {
+        TabMenu: {
+          screen: TabNavigatorStack},
+    },
+    {
+       drawerWidth: 300,
+       drawerPosition: 'left',
+       contentComponent: props => <Menu {...props} />
     }
 );
 export default NavigatorStack
