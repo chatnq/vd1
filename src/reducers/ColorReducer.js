@@ -1,5 +1,5 @@
 const initialState = {
-    colorName: 'RED',
+    colorName: 'BLUE',
 };
 
 const ColorReducer = (state = initialState, action) => {

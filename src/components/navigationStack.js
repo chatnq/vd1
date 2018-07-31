@@ -1,7 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { createStore, combineReducers } from 'redux';
-import { connect } from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import MainPage from './MainPage';
 import ChooseColorPage from './ChooseColorPage';
 import Loginpage from './Login';
@@ -37,7 +36,7 @@ export const NavigatorStack1 = createStackNavigator(
     initialRouteName: 'Main',
     navigationOptions: {
         headerStyle: {
-          backgroundColor: '#f45',
+          backgroundColor: '#225',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -69,14 +68,14 @@ export const TabNavigatorStack= createBottomTabNavigator(
             tabBarLabel: 'Home',
           },
         },
-        Setting: {
+        Settings: {
             screen: NavigatorStack2,
             navigationOptions: {
                 headerTitle: 'Thiet lap',
                 tabBarLabel: 'Setting',
          } },
     },
-    /*{
+   /* {
         navigationOptions: ({ navigation }) => ({
           tabBarIcon: ({ focused, tintColor }) => {
             const { routeName } = navigation.state;
@@ -84,7 +83,7 @@ export const TabNavigatorStack= createBottomTabNavigator(
             if (routeName === 'Home') {
               iconName = `ios-information-circle${focused ? '' : '-outline'}`;
             } else if (routeName === 'Settings') {
-              iconName = `ios-options${focused ? '' : '-outline'}`;
+              iconName = `ios-options${focused ? '' : '-outline'}`;            
             }
     
             // You can return any component that you like here! We usually use an
@@ -96,7 +95,7 @@ export const TabNavigatorStack= createBottomTabNavigator(
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
         },
-      } */
+      }  */
 );
 export const NavigatorStack= createDrawerNavigator(
     {
