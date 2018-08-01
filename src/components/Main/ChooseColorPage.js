@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { colorChanged } from '../actions/ColorChangedAction.js';
-import { COLORS } from '../state/Colors.js';
+import { colorChanged } from '../../actions/ColorChangedAction.js';
+import { COLORS } from '../../state/Colors.js';
 
 class ChooseColorPage extends Component {
 

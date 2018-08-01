@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
-import { NavigatorStack1 } from '../components/navigationStack';
+import { MainStack } from '../components/Navigation/navigationStack';
 
-const router = NavigatorStack1.router;
+const router = MainStack.router;
 const mainNavAction = router.getActionForPathAndParams('Main');
 const initialNavState = router.getStateForAction(mainNavAction);
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Button, StyleSheet, Text } from 'react-native';
 //import { Button } from 'react-native-elements'
 import { connect } from 'react-redux';
-import { COLORS } from '../state/Colors.js';
+import { COLORS } from '../../state/Colors.js';
 
 class MainPage extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -15,8 +15,9 @@ class MainPage extends Component {
     onChooseColor() {
         this.props.navigation.navigate('ChooseColor');
     }
-    onLoginpage() {
-        this.props.navigation.navigate('Login');
+    onLogout() {
+        alert("Bạn vừa đăng xuất thành công!");
+        this.props.navigation.navigate('WalkthroughScreen');
     }
     selectedColor() {
         const { colorName } = this.props;
@@ -50,9 +51,9 @@ class MainPage extends Component {
                  </View>
                  <View style={{width: 150, height: 50, alignContent: 'center', paddingTop: 10 }}>
                     <Button 
-                        onPress={this.onLoginpage.bind(this)}
+                        onPress={this.onLogout.bind(this)}
                         color="#222"
-                        title="Đăng nhập"
+                        title="Logout"
                      />
                  </View>
                  <View style={{width: 150, height: 50, alignContent: 'center' }}>

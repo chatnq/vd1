@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Button, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { COLORS } from '../state/Colors.js';
+import { COLORS } from '../../state/Colors.js';
 
 class Loginpage extends Component {
     static navigationOptions = ({ navigation }) => {
